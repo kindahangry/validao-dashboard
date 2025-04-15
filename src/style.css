@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+    background-image: url(src/assets/u4934289461_Makoto_Shinkai_style_anime_waifu_in_bottom_corner_o_40ddf171-6f84-46f3-871e-0d63219e4bd2.png);
+    background-position: center;
+    background-position-y: 10%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.data-box {
+    width: 400px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0.8;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-container {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.data-box p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: #666;
+}
+
+.error {
+    text-align: center;
+    padding: 20px;
+    color: #ff0000;
+    background-color: #ffe6e6;
+    border-radius: 8px;
+    margin: 20px;
+} 
