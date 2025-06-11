@@ -43,7 +43,6 @@ const AppContent = () => {
       commission: 0.05,
       nativeVpWeight: 1.0,
       lpVpWeight: 0.8,
-      defaultApr: 0, // Won't be used as Initia won't have null APRs
       defaultNativeApr: 20,
       defaultLpApr: 120
     },
@@ -201,19 +200,37 @@ const AppContent = () => {
 
         if (!config) return;
 
-        if (chain === 'initia') {
+        if (chain.toLowerCase() === 'initia') {
           const initStake = chainData.total_stake_init;
           const lpStake = chainData.total_stake_lp;
+          const totalStake = chainData.total_stake;
+          let initiaRevenue = 0;
           
-
-          if (initStake && initStake.value_usd) {
-            const apr = initStake.apr !== null ? initStake.apr : config.defaultNativeApr;
-            annualRevenue += initStake.value_usd * (apr / 100) * config.commission;
+          if (initStake && initStake.value_usd && lpStake && lpStake.value_usd) {
+            // After May 12, 2025 - we have separate LP and INIT stakes
+            const nativeApr = initStake.apr !== null ? initStake.apr : config.defaultNativeApr;
+            const lpApr = lpStake.apr !== null ? lpStake.apr : config.defaultLpApr;
+            console.log('Initia native stake:', { value_usd: initStake.value_usd, apr: nativeApr, defaultApr: config.defaultNativeApr });
+            console.log('Initia LP stake:', { value_usd: lpStake.value_usd, apr: lpApr, defaultApr: config.defaultLpApr });
+            initiaRevenue += initStake.value_usd * (nativeApr / 100) * config.commission;
+            initiaRevenue += lpStake.value_usd * (lpApr / 100) * config.commission;
+          } else if (totalStake && totalStake.value_usd) {
+            // Before May 12, 2025 - split total stake evenly between LP and INIT
+            const halfStake = totalStake.value_usd / 2;
+            const nativeApr = config.defaultNativeApr;
+            const lpApr = config.defaultLpApr;
+            console.log('Initia historical total stake:', { 
+              value_usd: totalStake.value_usd, 
+              halfStake,
+              nativeApr,
+              lpApr
+            });
+            initiaRevenue += halfStake * (nativeApr / 100) * config.commission;
+            initiaRevenue += halfStake * (lpApr / 100) * config.commission;
           }
-          if (lpStake && lpStake.value_usd) {
-            const apr = lpStake.apr !== null ? lpStake.apr : config.defaultLpApr;
-            annualRevenue += lpStake.value_usd * (apr / 100) * config.commission;
-          }
+          
+          console.log('Total Initia revenue:', initiaRevenue);
+          annualRevenue = initiaRevenue;
         } else {
           const stake = chainData.total_stake;
           
