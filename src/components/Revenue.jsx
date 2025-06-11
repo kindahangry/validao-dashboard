@@ -61,7 +61,8 @@ const Revenue = () => {
       commission: 0.05,
       nativeVpWeight: 1.0,
       lpVpWeight: 0.8,
-      defaultApr: 0, // Won't be used as Initia won't have null APRs
+      defaultNativeApr: 20,
+      defaultLpApr: 120,
       color: '#333333',
       tokenSymbol: 'INIT'
     },
@@ -314,39 +315,41 @@ const Revenue = () => {
             if (chainKey === 'initia') {
               initStake = chainMetrics.total_stake_init || {};
               lpStake = chainMetrics.total_stake_lp || {};
+              const totalStake = chainMetrics.total_stake || {};
 
-              if (initStake?.value_usd) {
-                const apr = initStake.apr || config.defaultApr;
-                const initRevenue = initStake.value_usd * (apr / 100) * config.commission;
-                chainAnnualRevenue += initRevenue;
-
-                const tokenPrice = latestTokenPrices[config.tokenSymbol];
-                if (tokenPrice && tokenPrice > 0) {
-                  dailyNativeTokensEarned += (initRevenue / 365) / tokenPrice;
-                }
-              }
-              if (lpStake?.value_usd) {
-                const apr = lpStake.apr || config.defaultApr;
-                const lpRevenue = lpStake.value_usd * (apr / 100) * config.commission;
-                chainAnnualRevenue += lpRevenue;
+              if (initStake?.value_usd && lpStake?.value_usd) {
+                // After May 12, 2025 - we have separate LP and INIT stakes
+                const nativeApr = initStake.apr !== null ? initStake.apr : config.defaultNativeApr;
+                const lpApr = lpStake.apr !== null ? lpStake.apr : config.defaultLpApr;
+                
+                const initRevenue = initStake.value_usd * (nativeApr / 100) * config.commission;
+                const lpRevenue = lpStake.value_usd * (lpApr / 100) * config.commission;
+                chainAnnualRevenue += initRevenue + lpRevenue;
 
                 const tokenPrice = latestTokenPrices[config.tokenSymbol];
                 if (tokenPrice && tokenPrice > 0) {
-                  dailyNativeTokensEarned += (lpRevenue / 365) / tokenPrice;
+                  dailyNativeTokensEarned += ((initRevenue + lpRevenue) / 365) / tokenPrice;
                 }
-              }
 
-              const initAprDefined = typeof initStake?.apr === 'number';
-              const lpAprDefined = typeof lpStake?.apr === 'number';
+                currentChainAprValue = `${nativeApr.toFixed(2)}% - ${lpApr.toFixed(2)}%`;
+              } else if (totalStake?.value_usd) {
+                // Before May 12, 2025 - split total stake evenly between LP and INIT
+                const halfStake = totalStake.value_usd / 2;
+                const nativeApr = config.defaultNativeApr;
+                const lpApr = config.defaultLpApr;
+                
+                const initRevenue = halfStake * (nativeApr / 100) * config.commission;
+                const lpRevenue = halfStake * (lpApr / 100) * config.commission;
+                chainAnnualRevenue += initRevenue + lpRevenue;
 
-              if (initAprDefined && lpAprDefined) {
-                  currentChainAprValue = `${(initStake.apr).toFixed(2)}% - ${(lpStake.apr).toFixed(2)}%`;
-              } else if (initAprDefined) {
-                  currentChainAprValue = `${(initStake.apr).toFixed(2)}%`;
-              } else if (lpAprDefined) {
-                  currentChainAprValue = `${(lpStake.apr).toFixed(2)}%`;
+                const tokenPrice = latestTokenPrices[config.tokenSymbol];
+                if (tokenPrice && tokenPrice > 0) {
+                  dailyNativeTokensEarned += ((initRevenue + lpRevenue) / 365) / tokenPrice;
+                }
+
+                currentChainAprValue = `${nativeApr.toFixed(2)}% - ${lpApr.toFixed(2)}%`;
               } else {
-                  currentChainAprValue = 'N/A';
+                currentChainAprValue = 'N/A';
               }
 
             } else {
