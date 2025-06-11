@@ -5,10 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run optimize-images && npm run copy-images && vite build",
+    "build": "npm run copy-images && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "optimize-images": "node scripts/optimize-images.js",
     "copy-images": "node scripts/copy-optimized-images.js"
   },
   "dependencies": {
