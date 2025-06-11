@@ -6,8 +6,8 @@ const Background = ({ image }) => {
   const [currentImage, setCurrentImage] = useState(null);
 
   useEffect(() => {
-    const baseName = image.split('/').pop().replace('.png', '');
-    const optimizedPath = `/optimized/${baseName}`;
+    // Get the base name without the extension
+    const baseName = image.split('/').pop().replace('.webp', '');
     
     // Create image element for preloading
     const img = new Image();
@@ -23,7 +23,8 @@ const Background = ({ image }) => {
         suffix = '@small';
       }
       
-      const newSrc = `${optimizedPath}${suffix}.webp`;
+      // Use the imported image path directly
+      const newSrc = image;
       if (newSrc !== currentImage) {
         setCurrentImage(newSrc);
         img.src = newSrc;
