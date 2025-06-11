@@ -389,6 +389,31 @@ const AppContent = () => {
     }));
   };
 
+  // Preload the next likely background image
+  useEffect(() => {
+    const preloadNextImage = () => {
+      const currentPath = location.pathname;
+      let nextImage = overviewBg; // Default to overview
+
+      // Determine the next likely background based on current path
+      if (currentPath === '/') {
+        nextImage = hyperliquidBg; // Most likely to visit Hyperliquid next
+      } else if (currentPath === '/hyperliquid') {
+        nextImage = celestiaBg;
+      } else if (currentPath === '/celestia') {
+        nextImage = dymensionBg;
+      } else if (currentPath === '/dymension') {
+        nextImage = initiaBg;
+      }
+
+      // Preload the image
+      const img = new Image();
+      img.src = nextImage;
+    };
+
+    preloadNextImage();
+  }, [location.pathname]);
+
   if (error) {
     return <div className="error">Error loading data: {error}</div>;
   }

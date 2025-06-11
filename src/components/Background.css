@@ -4,10 +4,42 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.6;
-  transition: background-image 0.5s ease-in-out;
+  z-index: 0;
+  transition: opacity 0.3s ease-in-out;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+.background.loading {
+  opacity: 0;
+}
+
+.background.loaded {
+  opacity: 1;
+}
+
+/* Add a subtle gradient overlay to improve text readability */
+.background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.1)
+    ),
+    rgba(255, 255, 255, 0.4); /* More transparent white overlay */
+  pointer-events: none;
+  z-index: 1;
 } 
