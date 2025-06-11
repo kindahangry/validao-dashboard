@@ -1,0 +1,62 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebar-header {
+  margin-bottom: 25px;
+}
+
+.sidebar-header .validao-title-container {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.sidebar-header .ascii-title {
+  font-size: 0.3rem;
+  padding-bottom: 10px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nav-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-section-title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #888;
+  margin: 0;
+  padding: 0 15px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #2a2a2a;
+}
+
+.nav-link.active {
+  background-color: #3a3a3a;
+  font-weight: bold;
+} 

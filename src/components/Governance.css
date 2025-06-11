@@ -1,0 +1,73 @@
+.governance {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.governance h1 {
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.governance-content {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.governance-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+
+.governance-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.governance-content li {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.governance-content li:before {
+  content: "•";
+  color: #6f42c1;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.governance .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.governance .data-box {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 300px;
+}
+
+@media (max-width: 768px) {
+  .governance {
+    padding: 1rem;
+  }
+  
+  .governance-content {
+    padding: 1.5rem;
+  }
+} 

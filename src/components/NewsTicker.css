@@ -1,0 +1,126 @@
+.news-ticker {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 12px 0;
+  overflow: hidden;
+  z-index: 1000;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ticker-content {
+  display: flex;
+  animation: ticker 60s linear infinite;
+  white-space: nowrap;
+  will-change: transform;
+  transform: translateX(0);
+}
+
+.ticker-content:hover {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: flex;
+  align-items: center;
+  margin-right: 60px;
+  padding: 0 20px;
+  font-size: 14px;
+}
+
+/* Add extra spacing after Total Revenue and each chain's stake value */
+.ticker-item:nth-child(2),
+.ticker-item:nth-child(4),
+.ticker-item:nth-child(6),
+.ticker-item:nth-child(8),
+.ticker-item:nth-child(10) {
+  margin-right: 60px; /* Extra spacing after each section */
+}
+
+.ticker-label {
+  font-weight: 500;
+  margin-right: 8px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ticker-value {
+  font-weight: 600;
+}
+
+/* Different colors for different types of metrics */
+.ticker-item:nth-child(1) .ticker-value,
+.ticker-item:nth-child(11) .ticker-value { /* Total Stake */
+  color: #2196F3;
+}
+
+.ticker-item:nth-child(2) .ticker-value,
+.ticker-item:nth-child(12) .ticker-value { /* Total Revenue */
+  color: #FF9800;
+}
+
+/* Hyperliquid values */
+.ticker-item:nth-child(3) .ticker-value,
+.ticker-item:nth-child(4) .ticker-value,
+.ticker-item:nth-child(13) .ticker-value,
+.ticker-item:nth-child(14) .ticker-value {
+  color: #4CAF50; /* Brighter version of #274E40 */
+}
+
+/* Celestia values */
+.ticker-item:nth-child(5) .ticker-value,
+.ticker-item:nth-child(6) .ticker-value,
+.ticker-item:nth-child(15) .ticker-value,
+.ticker-item:nth-child(16) .ticker-value {
+  color: #9C27B0; /* Brighter version of #32145F */
+}
+
+/* Dymension values */
+.ticker-item:nth-child(7) .ticker-value,
+.ticker-item:nth-child(8) .ticker-value,
+.ticker-item:nth-child(17) .ticker-value,
+.ticker-item:nth-child(18) .ticker-value {
+  color: #FFB38A; /* Peach color */
+}
+
+/* Initia values */
+.ticker-item:nth-child(9) .ticker-value,
+.ticker-item:nth-child(10) .ticker-value,
+.ticker-item:nth-child(19) .ticker-value,
+.ticker-item:nth-child(20) .ticker-value {
+  color: #E0E0E0; /* Brighter version of #333333 */
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Add a subtle gradient overlay on the sides */
+.news-ticker::before,
+.news-ticker::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.news-ticker::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
+}
+
+.news-ticker::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.9), transparent);
+} 

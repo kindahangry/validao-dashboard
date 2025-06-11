@@ -1,38 +1,172 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
   margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 250px; /* Same as sidebar width */
   padding: 20px;
-  background-image: url('public/u4934289461_Makoto_Shinkai_style_anime_waifu_in_bottom_corner_o_40ddf171-6f84-46f3-871e-0d63219e4bd2.png');
-  background-position: center;
-  background-position-y: 10%;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .dashboard {
   display: flex;
-  flex-direction: column;         /* stack children vertically */
-  justify-content: space-evenly;  /* space them evenly */
-  height: 100vh;                  /* make dashboard fill the whole screen */
+  flex-direction: column;
+  gap: 20px;
 }
-
 
 .container {
   display: flex;
-  justify-content: space-evenly;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-
 .data-box {
-  width: 400px;
-  height: 300px;
-  background-color: #fff;
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  opacity: 0.8;
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+  margin-left: 50px;
+}
 
+.chart-container {
+  height: 700px; /* Adjust this value to your desired height */
+  width: 100%;
+  margin-top: 20px;
+}
+
+.error {
+  color: red;
+  padding: 20px;
+}
+
+.loading {
+  padding: 20px;
+}
+
+.timeframe-buttons {
   display: flex;
-  align-items: center;      /* vertical centering */
-  justify-content: center;  /* horizontal centering */
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.timeframe-buttons button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.timeframe-buttons button.active {
+  background-color: #4fd1c5;
+  color: white;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4fd1c5;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.metrics-summary {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 32px;
+  margin-top: 16px;
+}
+
+.metrics-tabs {
+  margin-bottom: 32px;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.tab-buttons button {
+  background: #f0f0f0;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab-buttons button.active {
+  background: #4fd1c5;
+  color: #fff;
+}
+
+.tab-content {
+  width: 100%;
+}
+
+.chain-main-content {
+ min-height: 1000px;
+ padding: 100px 100px;
+}
+
+.chain-title {
+  text-align: center;
+  margin-bottom: 18px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.stat-card {
+  min-width: 1000px;
+  padding: 100px 100px;
+}
+
+.chain-timeframe-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.chain-timeframe-buttons button {
+  background: #f0f0f0;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.chain-timeframe-buttons button.active {
+  background: #4fd1c5;
+  color: #fff;
 }

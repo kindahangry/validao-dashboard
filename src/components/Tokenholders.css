@@ -1,0 +1,32 @@
+.tokenholders {
+  padding: 20px;
+  margin-left: 250px;
+  color: #333;
+}
+
+.tokenholders h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.tokenholders .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.tokenholders .data-box {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 300px;
+}
+
+@media (max-width: 768px) {
+  .tokenholders {
+    margin-left: 0;
+    padding: 10px;
+  }
+} 

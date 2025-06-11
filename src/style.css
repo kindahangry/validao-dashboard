@@ -1,9 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
     margin: 0;
     padding: 20px;
-    background-image: url(/u4934289461_Makoto_Shinkai_style_anime_waifu_in_bottom_corner_o_40ddf171-6f84-46f3-871e-0d63219e4bd2.png);
     background-position: center;
     background-position-y: 10%;
     background-size: cover;
@@ -24,7 +22,6 @@ body {
 
 .data-box {
     width: 400px;
-    height: 300px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
