@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run optimize-images && npm run copy-images && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "optimize-images": "node scripts/optimize-images.js"
+    "optimize-images": "node scripts/optimize-images.js",
+    "copy-images": "node scripts/copy-optimized-images.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",

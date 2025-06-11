@@ -7,7 +7,7 @@ const Background = ({ image }) => {
 
   useEffect(() => {
     const baseName = image.split('/').pop().replace('.png', '');
-    const optimizedPath = `/src/assets/optimized/${baseName}`;
+    const optimizedPath = `/optimized/${baseName}`;
     
     // Create image element for preloading
     const img = new Image();
