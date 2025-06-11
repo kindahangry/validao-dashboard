@@ -14,12 +14,11 @@ import 'chartjs-plugin-crosshair';
 import NewsTicker from './components/NewsTicker';
 import StatCard from './components/StatCard';
 
-// Import images from public directory
-import overviewBg from '/optimized/main-overview-bg@2x.webp';
-import hyperliquidBg from '/optimized/hyperliquid-bg@2x.webp';
-import celestiaBg from '/optimized/celestia-bg@2x.webp';
-import dymensionBg from '/optimized/dymension-bg@2x.webp';
-import initiaBg from '/optimized/initia-bg@2x.webp';
+import overviewBg from './assets/main-overview-bg.png';
+import hyperliquidBg from './assets/hyperliquid-bg.png';
+import celestiaBg from './assets/celestia-bg.png';
+import dymensionBg from './assets/dymension-bg.png';
+import initiaBg from './assets/initia-bg.png';
 
 const AppContent = () => {
   const location = useLocation();
@@ -389,31 +388,6 @@ const AppContent = () => {
       }
     }));
   };
-
-  // Preload the next likely background image
-  useEffect(() => {
-    const preloadNextImage = () => {
-      const currentPath = location.pathname;
-      let nextImage = overviewBg; // Default to overview
-
-      // Determine the next likely background based on current path
-      if (currentPath === '/') {
-        nextImage = hyperliquidBg; // Most likely to visit Hyperliquid next
-      } else if (currentPath === '/hyperliquid') {
-        nextImage = celestiaBg;
-      } else if (currentPath === '/celestia') {
-        nextImage = dymensionBg;
-      } else if (currentPath === '/dymension') {
-        nextImage = initiaBg;
-      }
-
-      // Preload the image
-      const img = new Image();
-      img.src = nextImage;
-    };
-
-    preloadNextImage();
-  }, [location.pathname]);
 
   if (error) {
     return <div className="error">Error loading data: {error}</div>;
