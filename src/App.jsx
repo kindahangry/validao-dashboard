@@ -14,11 +14,11 @@ import 'chartjs-plugin-crosshair';
 import NewsTicker from './components/NewsTicker';
 import StatCard from './components/StatCard';
 
-import overviewBg from './assets/main-overview-bg.png';
-import hyperliquidBg from './assets/hyperliquid-bg.png';
-import celestiaBg from './assets/celestia-bg.png';
-import dymensionBg from './assets/dymension-bg.png';
-import initiaBg from './assets/initia-bg.png';
+import overviewBg from '/optimized/main-overview-bg@2x.webp';
+import hyperliquidBg from '/optimized/hyperliquid-bg@2x.webp';
+import celestiaBg from '/optimized/celestia-bg@2x.webp';
+import dymensionBg from '/optimized/dymension-bg@2x.webp';
+import initiaBg from '/optimized/initia-bg@2x.webp';
 
 const AppContent = () => {
   const location = useLocation();
