@@ -3,6 +3,7 @@ import { Chart as ChartJS } from 'chart.js/auto';
 import { Line } from 'react-chartjs-2';
 import { supabase } from './supabase';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Analytics } from "@vercel/analytics/react";
 import Sidebar from './components/Sidebar';
 import Overview from './components/Overview';
 import Background from './components/Background';
@@ -619,6 +620,7 @@ function App() {
     <Router>
       <AppContent />
       <NewsTicker />
+      <Analytics />
     </Router>
   );
 }
