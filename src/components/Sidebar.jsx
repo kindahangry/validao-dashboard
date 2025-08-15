@@ -38,6 +38,9 @@ const Sidebar = () => {
           <Link to="/revenue" className={`nav-link ${location.pathname === '/revenue' ? 'active' : ''}`}>
             Revenue
           </Link>
+          <Link to="/vdo" className={`nav-link ${location.pathname === '/vdo' ? 'active' : ''}`}>
+            VDO
+          </Link>
         </div>
       </nav>
     </div>

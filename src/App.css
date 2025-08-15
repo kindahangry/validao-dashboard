@@ -16,6 +16,8 @@ body {
   flex: 1;
   margin-left: 250px; /* Same as sidebar width */
   padding: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .dashboard {
@@ -108,6 +110,8 @@ body {
   justify-content: center;
   gap: 12px;
   margin-bottom: 18px;
+  position: relative;
+  z-index: 10;
 }
 
 .tab-buttons button {
@@ -119,6 +123,9 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
+  position: relative;
+  z-index: 11;
+  pointer-events: auto;
 }
 
 .tab-buttons button.active {
@@ -153,6 +160,8 @@ body {
   justify-content: center;
   gap: 10px;
   margin-bottom: 18px;
+  position: relative;
+  z-index: 10;
 }
 
 .chain-timeframe-buttons button {
@@ -164,6 +173,9 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
+  position: relative;
+  z-index: 11;
+  pointer-events: auto;
 }
 
 .chain-timeframe-buttons button.active {

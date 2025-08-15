@@ -14,6 +14,7 @@ import './App.css';
 import 'chartjs-plugin-crosshair';
 import NewsTicker from './components/NewsTicker';
 import StatCard from './components/StatCard';
+import VDO from './components/VDO';
 
 import overviewBg from './assets/main-overview-bg.jpg';
 import hyperliquidBg from './assets/hyperliquid-bg.jpg';
@@ -412,7 +413,7 @@ const AppContent = () => {
   }
 
   // Handle information pages
-  if (['/mission', '/governance', '/revenue'].includes(location.pathname)) {
+  if (['/mission', '/governance', '/revenue', '/vdo'].includes(location.pathname)) {
     return (
       <>
         <Background image={getBackgroundImage()} />
@@ -423,6 +424,7 @@ const AppContent = () => {
               <Route path="/mission" element={<Mission />} />
               <Route path="/governance" element={<Governance />} />
               <Route path="/revenue" element={<Revenue />} />
+              <Route path="/vdo" element={<VDO />} />
             </Routes>
           </div>
         </div>

@@ -1,0 +1,440 @@
+/* VDO specific styles to complement dashboard theme */
+
+.vdo-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.vdo-breakdown {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.breakdown-item {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.02);
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.breakdown-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.breakdown-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.breakdown-label {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.breakdown-value {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.vdo-loading {
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 2rem;
+  color: #666;
+}
+
+.vdo-error {
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 2rem;
+  color: #d32f2f;
+  background: rgba(211, 47, 47, 0.05);
+  border-radius: 6px;
+  border: 1px solid rgba(211, 47, 47, 0.2);
+}
+
+/* Fixed VDO page layout - removed aggressive positioning */
+.vdo-page {
+  padding: 20px;
+  width: 100%;
+  max-width: none;
+  margin-left: 0 !important;
+}
+
+/* ===== MAIN CONTAINER FOR BOTH PANELS ===== */
+.vdo-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+  min-height: 800px;
+}
+
+.vdo-container > .data-box {
+  flex: 0 0 auto;
+  width: auto;
+  min-height: 750px;
+}
+
+/* ===== TOKEN DISTRIBUTION PANEL DIMENSIONS ===== */
+.vdo-container > .data-box:first-child {
+  min-width: 650px;
+  max-width: 800px;
+  width: fit-content;
+}
+
+/* ===== VALIWHALES PANEL DIMENSIONS ===== */
+.vdo-container > .data-box:last-child {
+  min-width: 1000px;
+  max-width: 1300px;
+  overflow-x: auto;
+}
+
+/* Whale Monitor Styles - matching site theme */
+.whale-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.whale-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+
+.whale-stats {
+  margin-bottom: 1.5rem;
+}
+
+.whale-explanation {
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  background: rgba(33, 150, 243, 0.05);
+  border-radius: 4px;
+  border-left: 3px solid #2196f3;
+}
+
+.whale-explanation small {
+  color: #666;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.trend-indicator {
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.trend-indicator.accumulating {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.trend-indicator.distributing {
+  background: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+  border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+
+/* ===== VALIWHALES INTERNAL LAYOUT (BREAKDOWN + HOLDERS LIST) ===== */
+.whale-breakdown {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* ===== WHALE DISTRIBUTION BREAKDOWN (LEFT SIDE) DIMENSIONS ===== */
+.breakdown-section {
+  flex: 0 0 auto;
+  min-width: 350px;
+}
+
+.breakdown-section h4 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.whale-tier {
+  margin-bottom: 0.75rem;
+}
+
+.tier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.tier-label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.85rem;
+}
+
+.tier-value {
+  font-size: 0.8rem;
+  color: #666;
+  text-align: right;
+}
+
+/* ===== TOP 10 HOLDERS LIST (RIGHT SIDE) DIMENSIONS ===== */
+.top-whales {
+  flex: 1;
+  min-width: 400px;
+}
+
+.top-whales h4 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.whale-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Custom scrollbar for whale list */
+.whale-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.whale-list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.whale-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.whale-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.whale-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.whale-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.whale-rank {
+  font-weight: bold;
+  color: #666;
+  min-width: 30px;
+  font-size: 0.8rem;
+}
+
+.whale-address {
+  font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.whale-chain {
+  background: rgba(0, 0, 0, 0.08);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  color: #666;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.whale-balance {
+  font-weight: 600;
+  color: #333;
+  text-align: right;
+  white-space: nowrap;
+  font-size: 0.8rem;
+}
+
+.chart-container {
+  height: 900px; /* Increased from 700px to make better use of taller panels */
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Remove custom tooltip styles since we're using Chart.js default */
+
+/* Responsive design */
+@media (max-width: 1400px) {
+  .vdo-container {
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .vdo-container > .data-box:first-child {
+    min-width: 550px;
+    max-width: 700px;
+    width: fit-content;
+  }
+
+  .vdo-container > .data-box:last-child {
+    min-width: 900px;
+    max-width: 1100px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .vdo-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .vdo-container > .data-box {
+    min-width: 700px;
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vdo-container > .data-box {
+    min-width: 320px;
+    max-width: 100%;
+  }
+
+  .vdo-stats {
+    gap: 1rem;
+  }
+  
+  .stat-item {
+    padding: 0.5rem 1rem;
+  }
+  
+  .vdo-breakdown {
+    grid-template-columns: 1fr;
+  }
+
+  .whale-item {
+    grid-template-columns: auto 1fr auto;
+    gap: 0.5rem;
+  }
+
+  .whale-chain {
+    display: none;
+  }
+
+  .whale-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .trend-indicator {
+    display: block;
+    margin-left: 0;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .whale-breakdown {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .breakdown-section {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .vdo-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .breakdown-item {
+    padding: 0.6rem;
+  }
+  
+  .breakdown-label {
+    font-size: 0.8rem;
+  }
+  
+  .breakdown-value {
+    font-size: 0.7rem;
+  }
+}
