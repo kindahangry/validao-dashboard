@@ -108,7 +108,7 @@ const VDO = () => {
         ).map(holder => ({
           address: holder.address.hash,
           balance: Number(BigInt(holder.value)) / Math.pow(10, DECIMALS),
-          chain: 'Hyperliquid',
+          chain: 'HyperEVM',
           percentage: (Number(BigInt(holder.value)) / Math.pow(10, DECIMALS) / combinedTotalSupply) * 100
         })) || [];
       } catch (error) {
@@ -180,7 +180,7 @@ const VDO = () => {
           color: "#00C49F"
         },
         {
-          label: "VDO Holders (Hyperliquid)",
+          label: "VDO Holders (HyperEVM)",
           value: hypeHolders,
           color: "#FFBB28"
         }
