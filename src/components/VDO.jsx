@@ -447,7 +447,7 @@ const VDO = () => {
         <div className="vdo-container">
           {/* Token Distribution Section */}
           <div className="data-box">
-            <h3>VDO Token Distribution</h3>
+            <h3>VDO Token Migration Distribution</h3>
             <div className="vdo-stats">
               <div className="stat-item">
                 <span className="stat-label">Total Supply:</span>
