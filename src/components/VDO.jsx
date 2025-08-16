@@ -308,7 +308,7 @@ const VDO = () => {
             {/* ValiWhales Loading Panel */}
             <div className="data-box">
               <div className="whale-header">
-                <h3>ValiWhales</h3>
+                <h3>ValiWhale Tracker</h3>
               </div>
               <div className="vdo-loading">Loading whale data...</div>
             </div>
