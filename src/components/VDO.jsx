@@ -362,7 +362,7 @@ const VDO = () => {
     return (
       <div className="data-box">
         <div className="whale-header">
-          <h3>ValiWhales</h3>
+          <h3>ValiWhale Tracker</h3>
         </div>
         
         {whaleLoading && !whaleData && (
