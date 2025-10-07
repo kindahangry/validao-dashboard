@@ -521,7 +521,7 @@ const AppContent = () => {
           {/* Metrics Summary Row */}
           <div className="metrics-summary">
             <StatCard title="Current Stake" value={latestStake.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })} />
-            <StatCard title="Delegators" value={latestDelegators.toLocaleString()} />
+            <StatCard title="Delegators" value={currentChain === 'somnia' && latestDelegators === 0 ? 'N/A' : latestDelegators.toLocaleString()} />
             <StatCard title="Annual Revenue" value={latestRevenue.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })} />
           </div>
           {/* Timeframe Filter */}
