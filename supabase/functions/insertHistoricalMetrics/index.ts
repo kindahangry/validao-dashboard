@@ -4,7 +4,7 @@ serve(async () => {
   try {
     console.time('Total execution time');
     const timestamp = new Date().toISOString();
-    const chains = ['celestia', 'hyperliquid', 'dymension', 'initia', 'sthype'];
+    const chains = ['celestia', 'hyperliquid', 'dymension', 'initia', 'sthype', 'somnia'];
     const metricFields = ['total_stake', 'delegator_count'];
 
     // Cache for prices to avoid redundant fetches
@@ -15,7 +15,8 @@ serve(async () => {
       dymension: 'dymension',
       hyperliquid: 'hyperliquid',
       initia: 'initia',
-      sthype: 'hyperliquid' // Use HYPE price for stHYPE
+      sthype: 'hyperliquid', // Use HYPE price for stHYPE
+      somnia: 'somnia'
     };
 
     const denomFactors: Record<string, number> = {
@@ -23,7 +24,8 @@ serve(async () => {
       hyperliquid: 1e8,
       dymension: 1e18,
       initia: 1e6,
-      sthype: 1e18
+      sthype: 1e18,
+      somnia: 1e18 // wei denomination factor
     };
 
     const historicalMetrics: any[] = [];

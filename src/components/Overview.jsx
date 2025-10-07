@@ -91,7 +91,7 @@ const Overview = () => {
     }
 
     async function fetchLatestChainData() {
-      const chains = ['Hyperliquid', 'Celestia', 'Dymension', 'Initia'];
+      const chains = ['Hyperliquid', 'Celestia', 'Dymension', 'Initia', 'Somnia'];
       const chainDataPromises = chains.map(async (chainName) => {
         const { data, error } = await supabase
           .from('historical_metrics')
@@ -137,7 +137,7 @@ const Overview = () => {
     }
 
     async function fetchChainHistoricalData() {
-      const chains = ['Hyperliquid', 'Celestia', 'Dymension', 'Initia'];
+      const chains = ['Hyperliquid', 'Celestia', 'Dymension', 'Initia', 'Somnia'];
       const chainDataPromises = chains.map(async (chainName) => {
         const { data, error } = await supabase
           .from('historical_metrics')
@@ -227,7 +227,8 @@ const Overview = () => {
       hyperliquid: '#274E40',
       celestia: '#32145F',
       initia: '#333333',
-      dymension: '#5E5854'
+      dymension: '#5E5854',
+      somnia: '#C026D3'
     };
 
     return {
@@ -252,7 +253,8 @@ const Overview = () => {
     hyperliquid: '#274E40',
     celestia: '#32145F',
     initia: '#333333',
-    dymension: '#5E5854'
+    dymension: '#5E5854',
+    somnia: '#C026D3'
   };
 
   return (
@@ -324,7 +326,7 @@ const Overview = () => {
                   </div>
                 </div>
                 <div className="mini-chart">
-                  {chainHistoricalData[chain] && (
+                  {chainHistoricalData[chain] && formatMiniChartData(chainHistoricalData[chain], chain) && (
                     <Line 
                       data={formatMiniChartData(chainHistoricalData[chain], chain)} 
                       options={miniChartOptions}

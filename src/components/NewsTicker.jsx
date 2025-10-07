@@ -18,12 +18,13 @@ const NewsTicker = () => {
       nativeVpWeight: 1.0,
       lpVpWeight: 0.8
     },
-    Dymension: { commission: 0.05, apr: 4.12 }
+    Dymension: { commission: 0.05, apr: 4.12 },
+    Somnia: { commission: 0.2, apr: 10 }
   };
 
   useEffect(() => {
     async function fetchMetrics() {
-      const chains = ['Hyperliquid', 'Celestia', 'Dymension', 'Initia'];
+      const chains = ['Hyperliquid', 'Celestia', 'Dymension', 'Initia', 'Somnia'];
       const prices = {};
       const stakes = {};
 
@@ -114,7 +115,9 @@ const NewsTicker = () => {
     { label: 'Dymension Price', value: formatUsd(metrics.prices.Dymension) },
     { label: 'Dymension Stake', value: formatStake(metrics.stakes.Dymension) },
     { label: 'Initia Price', value: formatUsd(metrics.prices.Initia) },
-    { label: 'Initia Stake', value: formatStake(metrics.stakes.Initia) }
+    { label: 'Initia Stake', value: formatStake(metrics.stakes.Initia) },
+    { label: 'Somnia Price', value: formatUsd(metrics.prices.Somnia) },
+    { label: 'Somnia Stake', value: formatStake(metrics.stakes.Somnia) }
   ];
 
   return (

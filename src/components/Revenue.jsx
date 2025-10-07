@@ -71,6 +71,12 @@ const Revenue = () => {
       defaultApr: 4,
       color: '#5E5854',
       tokenSymbol: 'DYM'
+    },
+    somnia: {
+      commission: 0.2,
+      defaultApr: 10,
+      color: '#C026D3',
+      tokenSymbol: 'SOMI'
     }
   };
 

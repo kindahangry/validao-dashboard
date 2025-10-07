@@ -29,6 +29,9 @@ const Sidebar = () => {
           <Link to="/initia" className={`nav-link ${location.pathname === '/initia' ? 'active' : ''}`}>
             Initia
           </Link>
+          <Link to="/somnia" className={`nav-link ${location.pathname === '/somnia' ? 'active' : ''}`}>
+            Somnia
+          </Link>
         </div>
         <div className="nav-section">
           <h3 className="nav-section-title">Information</h3>

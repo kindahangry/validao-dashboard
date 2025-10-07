@@ -21,6 +21,7 @@ import hyperliquidBg from './assets/hyperliquid-bg.jpg';
 import celestiaBg from './assets/celestia-bg.jpg';
 import dymensionBg from './assets/dymension-bg.jpg';
 import initiaBg from './assets/initia-bg.jpg';
+import somniaBg from './assets/somnia-bg.jpg';
 
 const AppContent = () => {
   const location = useLocation();
@@ -29,7 +30,8 @@ const AppContent = () => {
     hyperliquid: { stake: 'max', delegator: 'max', revenue: 'max' },
     celestia: { stake: 'max', delegator: 'max', revenue: 'max' },
     dymension: { stake: 'max', delegator: 'max', revenue: 'max' },
-    initia: { stake: 'max', delegator: 'max', revenue: 'max' }
+    initia: { stake: 'max', delegator: 'max', revenue: 'max' },
+    somnia: { stake: 'max', delegator: 'max', revenue: 'max' }
   });
   const [error, setError] = useState(null);
   const [historicalChainRevenue, setHistoricalChainRevenue] = useState({});
@@ -48,7 +50,8 @@ const AppContent = () => {
       defaultNativeApr: 20,
       defaultLpApr: 120
     },
-    Dymension: { commission: 0.05, defaultApr: 4 }
+    Dymension: { commission: 0.05, defaultApr: 4 },
+    Somnia: { commission: 0.2, defaultApr: 10 }
   };
 
   const getBackgroundImage = () => {
@@ -63,6 +66,8 @@ const AppContent = () => {
         return dymensionBg;
       case '/initia':
         return initiaBg;
+      case '/somnia':
+        return somniaBg;
       default:
         return overviewBg;
     }
@@ -301,7 +306,8 @@ const AppContent = () => {
       hyperliquid: '#274E40',
       celestia: '#32145F',
       initia: '#333333',
-      dymension: '#5E5854'
+      dymension: '#5E5854',
+      somnia: '#C026D3'
     };
 
     // Create dynamic chart options based on the filtered data
@@ -369,7 +375,8 @@ const AppContent = () => {
       hyperliquid: '#274E40',
       celestia: '#32145F',
       initia: '#333333',
-      dymension: '#5E5854'
+      dymension: '#5E5854',
+      somnia: '#C026D3'
     };
 
     // Create dynamic chart options based on the filtered data
@@ -496,7 +503,8 @@ const AppContent = () => {
     hyperliquid: '#274E40',
     celestia: '#32145F',
     initia: '#333333',
-    dymension: '#5E5854'
+    dymension: '#5E5854',
+    somnia: '#C026D3'
   };
 
   // Prepare chart data and options
