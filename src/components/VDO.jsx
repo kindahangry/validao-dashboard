@@ -16,6 +16,7 @@ const HYPE_CA = "0xB5EE887259F792E613edBD20dDE8970C10fefda1";
 const NULL_ADDRESS = "0x000000000000000000000000000000000000dEaD";
 const BRIDGE_ADDRESS = "0x94551a8bf4464e2B52c3b714606E497980791980";
 const DECIMALS = 18;
+const PROXY_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/blockscout-proxy`;
 
 // Excluded addresses for whale analysis
 const EXCLUDED_ADDRESSES = new Set([
@@ -36,7 +37,13 @@ const VDO = () => {
   const [previousWhaleConcentration, setPreviousWhaleConcentration] = useState(null);
 
   const fetchTokenData = async (url) => {
-    const response = await fetch(url);
+    const proxyUrl = `${PROXY_URL}?url=${encodeURIComponent(url)}`;
+    const response = await fetch(proxyUrl, {
+      headers: {
+        'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
+      }
+    });
     const data = await response.json();
     return data;
   };
